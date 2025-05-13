@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Teable Todo List Plugin Template
+
+This project is a Todo List plugin template based on [Next.js](https://nextjs.org) and [Teable](https://teable.io), designed for secondary development and customization of your own Teable plugin.
+
+## Features
+- 📝 Basic Todo List functionality
+- ⚡️ Integrated Teable plugin development environment
+- 🌈 Multi-theme support (light/dark)
+- 🌍 Internationalization (i18n) support
+- 🪄 Easy to extend and customize
+
+## Dependencies
+- [Next.js](https://nextjs.org)
+- [@teable/core](https://www.npmjs.com/package/@teable/core)
+- [@teable/sdk](https://www.npmjs.com/package/@teable/sdk)
+- [@teable/openapi](https://www.npmjs.com/package/@teable/openapi)
+- [@teable/ui-lib](https://www.npmjs.com/package/@teable/ui-lib)
+- [@teable/next-themes](https://www.npmjs.com/package/@teable/next-themes)
+- [@tanstack/react-query](https://tanstack.com/query/latest)
 
 ## Getting Started
 
-First, run the development server:
-
+### 1. Install dependencies
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Start the development server
+```bash
+npm run dev
+```
+Visit [http://localhost:3000](http://localhost:3000) to view the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Build for production
+```bash
+npm run build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4. Start in production mode
+```bash
+npm start
+```
 
-## Learn More
+## Project Structure
+- `src/app/page.tsx`: App entry, integrates i18n, environment, theme, etc.
+- `src/app/Main.tsx`: Main business entry, integrates Teable SDK, theme, QueryClient
+- `src/components/TodoListPages.tsx`: Main logic for the Todo List page
+- `src/components/context/EnvProvider.tsx`: Injects environment variables
+- `src/components/context/I18nProvider.tsx`: Internationalization support
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Environment Variables & Plugin Parameters
+The `EnvProvider` component automatically reads plugin parameters (such as `lang`, `baseId`, `pluginId`, etc.) from the URL, no manual configuration required.
